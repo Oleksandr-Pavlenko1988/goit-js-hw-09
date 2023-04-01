@@ -16,3 +16,34 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  width:min-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: ghostwhite;
+  border: 5px solid green;
+  border-radius: 5px;
+  box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  font-size: 50px;
+  font-weight: bold;
+  color: teal;
+}
+
+.label {
+  font-size: 20px;
+  color: tomato;
+}
