@@ -4,13 +4,8 @@ const formEl = document.querySelector('.form');
 
 formEl.addEventListener('submit', handlerSubmit);
 
-let delayMs = null;
-let step = null;
-let amount = null;
-
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  
+  const shouldResolve = Math.random() > 0.3;  
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
