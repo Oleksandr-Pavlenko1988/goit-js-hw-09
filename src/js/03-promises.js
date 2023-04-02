@@ -10,6 +10,7 @@ let amount = null;
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
+  
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -24,9 +25,9 @@ function createPromise(position, delay) {
 
 function handlerSubmit(e) {
   e.preventDefault();
-  delayMs = Number(formEl.delay.value);
-  step = Number(formEl.step.value);
-  amount = Number(formEl.amount.value);
+  delayMs = Number(e.target.delay.value);
+  step = Number(e.target.step.value);
+  amount = Number(e.target.amount.value);
 
   for (let i = 1; i <= amount; i += 1) {
     createPromise(i, delayMs)
@@ -37,5 +38,5 @@ function handlerSubmit(e) {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }
-  formEl.reset();
+  e.target.reset();
 }

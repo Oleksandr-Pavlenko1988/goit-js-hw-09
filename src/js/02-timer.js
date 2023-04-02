@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let selectDate = null;
 let timerID = null;
+let timeMS = null;
 
 const options = {
   enableTime: true,
@@ -30,7 +31,7 @@ refs.startBtn.addEventListener('click', startTimer);
 flatpickr('#datetime-picker', options);
 
 function checkValidDate() {
-  const currentData = new Date();
+  const currentData = Date.now();
   if (selectDate > currentData) {
     refs.startBtn.disabled = false;
   } else {
@@ -70,7 +71,7 @@ function startTimer() {
 }
 
 function timerHandler() {
-  const timeMS = selectDate - new Date();
+  timeMS = selectDate - Date.now();
   if (timeMS <= 0) {
     clearInterval(timerID);
     timerID = null;
@@ -78,6 +79,10 @@ function timerHandler() {
     refs.startBtn.textContent = 'Start';
     return;
   }
+  timeRender();
+}
+
+function timeRender () {
   const timer = convertMs(timeMS);
   refs.days.textContent = addLeadingZero(timer.days);
   refs.hours.textContent = addLeadingZero(timer.hours);

@@ -2,7 +2,6 @@ const refs = {
     body: document.querySelector('body'),
     start: document.querySelector('button[data-start]'),
     stop: document.querySelector('button[data-stop]'),
-    isActive: false,
   };
 
   refs.start.addEventListener('click', handleStartBtn);
@@ -11,7 +10,6 @@ const refs = {
   let intervalId = null;
 
   function handleStartBtn () {
-    refs.isActive = true;
     refs.start.disabled = true;
       intervalId = setInterval(() => {
         refs.body.style.backgroundColor = getRandomHexColor();
@@ -19,7 +17,6 @@ const refs = {
   };
 
   function handleStopBtn () {
-    refs.isActive = false;
       refs.start.disabled = false;
       clearInterval(intervalId);
   };
